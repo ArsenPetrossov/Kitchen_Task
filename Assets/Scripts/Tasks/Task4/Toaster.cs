@@ -5,6 +5,8 @@ public class Toaster : MonoBehaviour
 {
     // TODO: Создайте событие TimerIsUp и вызывайте его, когда таймер вышел
 
+    public Action TimerIsUp;
+
     public float Timer { get; private set; } = 10; // Таймер готовности вафли
     private bool _isTimerUp; 
 
@@ -26,6 +28,7 @@ public class Toaster : MonoBehaviour
         {
             // Таймер вышел
             _isTimerUp = true;
+            TimerIsUp.Invoke();
         }
     }
 }
